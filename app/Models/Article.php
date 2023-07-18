@@ -22,11 +22,11 @@ class Article extends Model
     }
 
     public function author(){
-        return $this->hasOne(Author::class);
+        return $this->belongsTo(Author::class);
     }
 
     public function comments(){
-        return $this->hasMany(Comment::class)->orderByDesc("created_at");
+        return $this->hasMany(Comment::class)->orderBy("created_at");
     }
 
     public function user(){

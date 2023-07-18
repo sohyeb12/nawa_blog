@@ -26,7 +26,7 @@
 					<div class="inner-box">
 						<div class="image">
 
-							<a href="blog-detail.html"><img src="{{ $article->image_url }}" alt="#" width="500" height="300"/></a>
+							<a href="{{ route('show.article' , $article->id) }}"><img src="{{ $article->image_url }}" alt="" width="500" height="300"/></a>
 						</div>
 						<div class="lower-content">
 							<div class="content">
@@ -35,12 +35,12 @@
 									<!-- <li><span class="icon flaticon-heart"></span> 126</li> -->
 								</ul>
 								<ul class="post-meta">
-									<li>June 21, 2018 at 8:12pm</li>
-									<li>Post By: Admin</li>
+									<li>{{ $article->created_at }}</li>
+									<li>Post By: {{ $article->user->name }}</li>
 								</ul>
-								<h3><a href="blog-detail.html">{{ $article->title }}</a></h3>
+								<h3><a href="{{ route('show.article' , $article->id) }}">{{ $article->title }}</a></h3>
 								<div class="text">{{ substr($article->article_text,0,122) }} ...</div>
-								<a href="blog-detail.html" class="theme-btn btn-style-five"><span class="txt">read more</span></a>
+								<a href="{{ route('show.article' , $article->id) }}" class="theme-btn btn-style-five"><span class="txt">read more</span></a>
 							</div>
 						</div>
 					</div>

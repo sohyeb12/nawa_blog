@@ -42,13 +42,39 @@
                         </ul>
                     </div>
                     <div class="top-right clearfix">
-                        <ul class="social-icons">
-                            <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                            <li><a href="#"><span class="fab fa-google"></span></a></li>
-                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                            <li><a href="#"><span class="fab fa-skype"></span></a></li>
-                            <li><a href="#"><span class="fab fa-linkedin"></span></a></li>
+                    @auth
+                            <div class="user" style="color: black;">
+                                <i class="lni lni-user"></i>
+                                {{ Auth::user()->name ?? "No Name" }}
+                            </div>
+                            <ul class="user-login">
+                                <li>
+                                    <a style="color: black;" href="{{ route('profile.edit') }}">Profile</a>
+                                </li>
+
+                                <li>
+                                    <a style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logoutForm').submit()">Logout</a>
+                                </li>
+                            </ul>
+                            <form id="logoutForm" action="{{ route('logout') }}" method="post" style="display: none;">
+                                @csrf
+
+                            </form>
+                        </div>
+                        @else
+                        <div class="user" style="color: black;">
+                            <i class="lni lni-user"></i>
+                            Hello
+                        </div>
+                        <ul class="user-login">
+                            <li>
+                                <a style="color: black;" href="{{ route('login') }}">Sign In</a>
+                            </li>
+                            <li>
+                                <a style="color: black;" href="{{ route('register') }}">Register</a>
+                            </li>
                         </ul>
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -155,7 +181,7 @@
                                             <li><a href="checkout.html">Checkout Page</a></li>
                                         </ul>
                                     </li> -->
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{ route('communications.create') }}">Contact</a></li>
                                     </ul>
                                 </div>
                             </nav>

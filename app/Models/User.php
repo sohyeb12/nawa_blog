@@ -71,4 +71,14 @@ class User extends Authenticatable
     public function articles(){
         return $this->hasMany(Article::class);
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class)->withDefault([
+            'first_name' => 'No Name',
+        ]);
+    }
 }

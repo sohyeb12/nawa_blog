@@ -22,6 +22,7 @@
             <th>title</th>
             <th>Created_at</th>
             <th>Images</th>
+            <th>Comments</th>
             <th></th>
             <th></th>
         </tr>
@@ -38,9 +39,17 @@
                 </a>
 
             </td>
-            
+
+
+            <td><a href="{{ route('comments.show' , $article->id) }}">{{ $article->comments_count }}</a>
+            </td>
+
+
             <td><a href="{{ route('articles.edit', $article->id) }}" class="btn btn -sm btn-outline-dark"><i class="fas fa-edit"></i> Edit</a> </td>
             <td>
+
+
+
                 <form action="{{ route('articles.destroy', $article->id) }}" method="post">
                     @csrf
                     @method("delete")
@@ -53,6 +62,6 @@
 </table>
 
 <div>
-    <!-- paginte -->
+    {{ $articles->links() }}
 </div>
 @endsection

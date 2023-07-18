@@ -16,7 +16,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        $articles = Article::all()->toQuery()->withCount('comments')->paginate(4);
 
         return view('admin.articles.index',[
             "articles" => $articles,

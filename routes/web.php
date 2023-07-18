@@ -29,7 +29,7 @@ Route::get('/', function () {
         'blog_information' => $blog_information,
     ]);
     
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -43,4 +43,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/blog.php';
 require __DIR__.'/admin.php';
+

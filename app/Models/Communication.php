@@ -9,11 +9,12 @@ class Communication extends Model
 {
     use HasFactory;
 
+
     protected $fillable = [
-        'name','email','phone','text_message',
+        'name','email','phone','text_message', 'subject',
     ];
 
-    public function user(){
+    // public function user(){
         
-    }
+    // }
 }
