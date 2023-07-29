@@ -11,3 +11,5 @@ Route::post('/communications',[CommunicationsController::class , 'store'])->name
 Route::post('/comments',[CommentsController::class , 'store'])->name('comments.store');
 Route::get('/comments/{id}',[CommentsController::class , 'show'])->name('comments.show');
 Route::get('/articles/{id}',[ArticlesController::class , 'show'])->name('show.article');
+
+Route::get('about_us',[ContactUsController::class , 'about_us'])->name('about_us');

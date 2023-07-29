@@ -42,42 +42,42 @@
                         </ul>
                     </div>
                     <div class="top-right clearfix">
-                    @auth
-                            <div class="user" style="color: black;">
-                                <i class="lni lni-user"></i>
-                                {{ Auth::user()->name ?? "No Name" }}
-                            </div>
-                            <ul class="user-login">
-                                <li>
-                                    <a style="color: black;" href="{{ route('profile.edit') }}">Profile</a>
-                                </li>
-
-                                <li>
-                                    <a style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logoutForm').submit()">Logout</a>
-                                </li>
-                            </ul>
-                            <form id="logoutForm" action="{{ route('logout') }}" method="post" style="display: none;">
-                                @csrf
-
-                            </form>
-                        </div>
-                        @else
+                        @auth
                         <div class="user" style="color: black;">
                             <i class="lni lni-user"></i>
-                            Hello
+                            {{ Auth::user()->name ?? "No Name" }}
                         </div>
                         <ul class="user-login">
                             <li>
-                                <a style="color: black;" href="{{ route('login') }}">Sign In</a>
+                                <a style="color: black;" href="{{ route('profile.edit') }}">Profile</a>
                             </li>
+
                             <li>
-                                <a style="color: black;" href="{{ route('register') }}">Register</a>
+                                <a style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logoutForm').submit()">Logout</a>
                             </li>
                         </ul>
-                        @endauth
+                        <form id="logoutForm" action="{{ route('logout') }}" method="post" style="display: none;">
+                            @csrf
+
+                        </form>
                     </div>
+                    @else
+                    <div class="user" style="color: black;">
+                        <i class="lni lni-user"></i>
+                        Hello
+                    </div>
+                    <ul class="user-login">
+                        <li>
+                            <a style="color: black;" href="{{ route('login') }}">Sign In</a>
+                        </li>
+                        <li>
+                            <a style="color: black;" href="{{ route('register') }}">Register</a>
+                        </li>
+                    </ul>
+                    @endauth
                 </div>
             </div>
+
             <!-- End Header Top -->
 
             <!-- Header Upper -->
@@ -86,7 +86,7 @@
                     <div class="auto-container clearfix">
                         <!--Info-->
                         <div class="logo-outer">
-                            <div class="logo"><a href="index.html"><img src="{{ $blog_information->image_url }}" alt="" title="" width="230" height="70"></a></div>
+                            <div class="logo"><a href="{{ route('home') }}"><img src="{{ $blog_information->image_url }}" alt="" title="" width="230" height="70"></a></div>
                         </div>
 
                         <!--Nav Box-->
@@ -103,15 +103,15 @@
 
                                 <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li class="dropdown"><a href="#">Home</a>
+                                        <li class="dropdown"><a href="{{ route('home') }}">Home</a>
                                             <ul>
-                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="{{ route('home') }}">Home</a></li>
 
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="#">About us</a>
+                                        <li class="dropdown"><a href="{{ route('about_us') }}">About us</a>
                                             <ul>
-                                                <li><a href="about.html">About Us</a></li>
+                                                <li><a href="{{ route('about_us') }}">About Us</a></li>
 
                                             </ul>
                                         </li>
@@ -207,7 +207,7 @@
                 <div class="auto-container clearfix">
                     <!--Logo-->
                     <div class="logo pull-left">
-                        <a href="index.html" class="img-responsive"><img src="{{ $blog_information->image_url }}" alt="" title="" width="140" height="50"></a>
+                        <a href="{{ route('home') }}" class="img-responsive"><img src="{{ $blog_information->image_url }}" alt="" title="" width="140" height="50"></a>
                     </div>
 
                     <!--Right Col-->
@@ -259,7 +259,7 @@
                                 <div class="footer-column col-lg-7 col-md-6 col-sm-12">
                                     <div class="footer-widget logo-widget">
                                         <div class="logo">
-                                            <a href="index.html"><img src="{{ asset('assets/images/logo-3.png') }}" alt="" /></a>
+                                            <a href="{{ route('home') }}"><img src="{{ $blog_information->image_url }}" alt="" width="260" height="150" /></a>
                                         </div>
                                         <div class="text">Meditech is a library of health and medical templates with predefined web elements which helps you to build your medical templates best site Provide Comprehensive Quality Care About Medical Care Health Suspendisse metus turpis.</div>
                                         <ul class="social-icons">

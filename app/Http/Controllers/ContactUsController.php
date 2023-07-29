@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogInformation;
 use App\Models\Communication;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,13 @@ class ContactUsController extends Controller
 
         return redirect()->back();
     
+    }
+
+    public function about_us(){
+        $blog_information = BlogInformation::first();
+        return view('blog.about_us',[
+            'blog_information' => $blog_information,
+        ]);
     }
 
 }
