@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\UpdatePasswordUser;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\BlogInformationController;
+use App\Http\Controllers\CommunicationsController;
 use Illuminate\Support\Facades\Route;
 
 // author_user','admin','super-admin'
@@ -22,5 +23,8 @@ Route::middleware(['auth' , 'auth.ensuretype:author_user,admin,super-admin'])->g
     Route::post('/admin/blog_informations',[BlogInformationController::class,'store'])->name('blog_informations.store');
     Route::get('/admin/blog_informations/{blog_information}/edit',[BlogInformationController::class,'edit'])->name('blog_informations.edit');
     Route::put('/admin/blog_informations/{blog_information}',[BlogInformationController::class,'update'])->name('blog_informations.update');
+
+    Route::get('/admin/communications',[CommunicationsController::class , 'index'])->name('communications.index');
+    Route::delete('/admin/communications/{communication}',[CommunicationsController::class , 'destroy'])->name('communications.destroy');
 
 });

@@ -41,8 +41,9 @@
                             <li><span class="icon fas fa-phone"></span> <a href="tel:+555–123–2323"> 555–123–2323</a></li>
                         </ul>
                     </div>
+
+                    @auth
                     <div class="top-right clearfix">
-                        @auth
                         <div class="user" style="color: black;">
                             <i class="lni lni-user"></i>
                             {{ Auth::user()->name ?? "No Name" }}
@@ -62,18 +63,20 @@
                         </form>
                     </div>
                     @else
-                    <div class="user" style="color: black;">
-                        <i class="lni lni-user"></i>
-                        Hello
+                    <div class="top-right clearfix">
+                        <div class="user" style="color: black;">
+                            <i class="lni lni-user"></i>
+                            Hello
+                        </div>
+                        <ul class="user-login">
+                            <li>
+                                <a style="color: black;" href="{{ route('login') }}">Sign In</a>
+                            </li>
+                            <li>
+                                <a style="color: black;" href="{{ route('register') }}">Register</a>
+                            </li>
+                        </ul>
                     </div>
-                    <ul class="user-login">
-                        <li>
-                            <a style="color: black;" href="{{ route('login') }}">Sign In</a>
-                        </li>
-                        <li>
-                            <a style="color: black;" href="{{ route('register') }}">Register</a>
-                        </li>
-                    </ul>
                     @endauth
                 </div>
             </div>

@@ -7,12 +7,12 @@
   <title>Mail Success - Blog Sohyeb Jarwan</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.svg') }}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ asset('success/images/favicon.svg') }}" />
 
   <!-- ========================= CSS here ========================= -->
-  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-  <link rel="stylesheet" href="{{ asset('assets/css/LineIcons.3.0.css') }}" />
-  <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
+  <link rel="stylesheet" href="{{ asset('success/css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('success/css/LineIcons.3.0.css') }}" />
+  <link rel="stylesheet" href="{{ asset('success/css/main.css') }}" />
 
 </head>
 
@@ -46,7 +46,7 @@
             <h2>Your Mail Sent Successfully</h2>
             <p>Thanks for contacting with us, We will get back to you asap.</p>
             <div class="button">
-              <a href="index.html" class="btn">Back to Home</a>
+              <a href="{{ route('home') }}" class="btn">Back to Home</a>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
   <!-- End Error Area -->
 
   <!-- ========================= JS here ========================= -->
-  <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('success/js/bootstrap.min.js') }}"></script>
   <script>
     window.onload = function () {
       window.setTimeout(fadeout, 500);
